@@ -14,7 +14,7 @@ current_time = now.strftime("%d/%m/%Y %H:%M:%S")
 print("--- Start Execution Time :", current_time, "---")
 
 f = open(
-    "./auto_bot/secret.json",
+    "/home/ubuntu/auto_bot/secret.json",
 )
 secret = json.load(f)
 f.close()
@@ -24,7 +24,7 @@ production = True
 
 pair = "ETH/USDT:USDT"
 timeframe = "1h"
-leverage = 0.5
+leverage = 0.35
 mult = 5
 percent_sl = -0.35
 
@@ -36,10 +36,10 @@ long_ma_window = 500
 
 def open_long(row):
     if (
-        row['n1_close'] < row['n1_higher_band'] 
-        and (row['close'] > row['higher_band']) 
-        and ((row['n1_higher_band'] - row['n1_lower_band']) / row['n1_lower_band'] > min_bol_spread)
-        (row['close'] > row['long_ma'])
+        (row['n1_close'] < row['n1_higher_band']) 
+        and  (row['close'] > row['higher_band']) 
+        and  ((row['n1_higher_band'] - row['n1_lower_band']) / row['n1_lower_band'] > min_bol_spread)
+        and (row['close'] > row['long_ma'])
     ):
         return True
     else:
@@ -72,6 +72,7 @@ bybit = PerpBybit(
     apiKey=secret[account_to_select]["apiKey"],
     secret=secret[account_to_select]["secret"],
 )
+
 
 # Get data
 df = bybit.get_more_last_historical_async(pair, timeframe, 1000)
@@ -158,4 +159,4 @@ else:
 now = datetime.now()
 current_time = now.strftime("%d/%m/%Y %H:%M:%S")
 print("--- End Execution Time :", current_time, "---")
-
+print("n1_close:",row['n1_close']," n1_Higer_Bol:", row['n1_higher_band']," close:", row['close'], " HigherBol:", row['higher_band'], " MA:", row["long_ma"])

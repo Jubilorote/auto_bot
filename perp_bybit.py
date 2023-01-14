@@ -40,6 +40,7 @@ class PerpBybit():
         result.index = pd.to_datetime(result.index, unit='ms')
         del result['timestamp']
         return result
+
     
     def get_more_last_historical_async(self, symbol, timeframe, limit):
         max_threads = 4
@@ -48,7 +49,7 @@ class PerpBybit():
         # define worker function before a Pool is instantiated
         full_result = []
         def worker(i):
-            
+
             try:
                 return self._session.fetch_ohlcv(
                 symbol, timeframe, round(time.time() * 1000) - (i*1000*60*60), limit=100)
@@ -71,7 +72,7 @@ class PerpBybit():
     def get_usdt_equity(self):
         try:
             usdt_equity = self._session.fetch_balance({'coin':'USDT' })["info"]['result']['list'][0]['equity']
-            
+
         except BaseException as err:
             raise Exception("An error occured", err)
         try:
@@ -112,7 +113,7 @@ class PerpBybit():
 
     @authentication_required
     def place_market_stop_loss(self, symbol, side, amount, trigger_price, reduce=False):
-        
+
         try:
             return self._session.create_order(
                 symbol, 
