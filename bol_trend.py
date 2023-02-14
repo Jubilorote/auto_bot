@@ -128,7 +128,7 @@ else:
     print("No active position")
     if open_long(row) and "long" in type:
         long_market_price = float(df.iloc[-1]["close"])
-        long_quantity_in_usd = usd_balance * leverage
+        long_quantity_in_usd = usd_balance * leverage *mult
         long_quantity = float(bybit.convert_amount_to_precision(pair, float(
             bybit.convert_amount_to_precision(pair, long_quantity_in_usd / long_market_price)
         )))
@@ -143,7 +143,7 @@ else:
 
     elif open_short(row) and "short" in type:
         short_market_price = float(df.iloc[-1]["close"])
-        short_quantity_in_usd = usd_balance * leverage
+        short_quantity_in_usd = usd_balance * leverage *mult
         short_quantity = float(bybit.convert_amount_to_precision(pair, float(
             bybit.convert_amount_to_precision(pair, short_quantity_in_usd / short_market_price)
         )))
