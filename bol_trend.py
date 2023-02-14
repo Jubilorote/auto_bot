@@ -132,7 +132,7 @@ else:
         long_quantity = float(bybit.convert_amount_to_precision(pair, float(
             bybit.convert_amount_to_precision(pair, long_quantity_in_usd / long_market_price)
         )))
-        exchange_long_quantity = long_quantity * long_market_price * mult
+        exchange_long_quantity = long_quantity * long_market_price
         print(
             f"Place Open Long Market Order: {long_quantity} {pair[:-5]} at the price of {long_market_price}$ ~{round(exchange_long_quantity, 2)}$"
         )
@@ -147,7 +147,7 @@ else:
         short_quantity = float(bybit.convert_amount_to_precision(pair, float(
             bybit.convert_amount_to_precision(pair, short_quantity_in_usd / short_market_price)
         )))
-        exchange_short_quantity = short_quantity * short_market_price * mult
+        exchange_short_quantity = short_quantity * short_market_price
         print(
             f"Place Open Short Market Order: {short_quantity} {pair[:-5]} at the price of {short_market_price}$ ~{round(exchange_short_quantity, 2)}$"
         )
