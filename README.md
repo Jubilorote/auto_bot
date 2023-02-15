@@ -1,4 +1,4 @@
-# Trading bot for Bybit 
+## Trading bot for Bybit 
 Bot take long and short with API ccxt.bybit().
 Use bollinger and MA
 
@@ -11,9 +11,10 @@ long_ma_window : set for mobile average.
 
 My thanks : 
 Big thanks for the youtube channel @cryptorobotfr : https://www.youtube.com/@cryptorobotfr
+
 Just modified few things from their project : https://github.com/CryptoRobotFr/live_tools
 
-# Bot de trading pour bybit
+## Bot de trading pour bybit
 utilise l'API ccxt
 leverage : la quantity du wallet
 mult : multiplicateur
@@ -24,6 +25,7 @@ long_ma_window : Longueur de la moyenne mobile.
 
 Remerciement :
 Merci à la chaine youtube @cryptorobotfr : https://www.youtube.com/@cryptorobotfr
+
 Modifié quelques lignes depuis leurs projets : https://github.com/CryptoRobotFr/live_tools
 
 
