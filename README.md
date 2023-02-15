@@ -1,6 +1,6 @@
 # auto_bot
 
-Trading bot for Bybit 
+# Trading bot for Bybit 
 Bot take long and short with API ccxt.bybit().
 Use bollinger and MA
 
@@ -15,7 +15,7 @@ My thanks :
 Big thanks for the youtube channel @cryptorobotfr : https://www.youtube.com/@cryptorobotfr
 Just modified few things from their project : https://github.com/CryptoRobotFr/live_tools
 
-Bot de trading pour bybit
+# Bot de trading pour bybit
 utilise l'API ccxt
 leverage : la quantity du wallet
 mult : multiplicateur
