@@ -3,7 +3,9 @@ Bot take long and short with API ccxt.bybit().
 Use bollinger and MA
 
 leverage: set wallet's quantity
+
 mult: multiplicateur
+
 percent_sl : Stop Loss calculated with mult inside
 
 bol_window, bol_std, min_bol_spread : set for Bollinger bands.
@@ -17,8 +19,11 @@ Just modified few things from their project : https://github.com/CryptoRobotFr/l
 
 ## Bot de trading pour bybit
 utilise l'API ccxt
+
 leverage : la quantity du wallet
+
 mult : multiplicateur
+
 percent_sl : le Stop Loss en ratio calculé avec le multiplicateur
 
 bol_window, bol_std, min_bol_spread : Paramèttre de la Bande de Bollinger
