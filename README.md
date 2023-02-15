@@ -1,5 +1,5 @@
 ## Trading bot for Bybit 
-Bot take long and short with API ccxt.bybit().
+Bot take long and short with ccxt.bybit() API.
 Use bollinger and MA
 
 leverage: set wallet's quantity
