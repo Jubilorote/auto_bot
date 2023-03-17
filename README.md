@@ -15,7 +15,7 @@ long_ma_window : set for mobile average.
 My thanks : 
 Big thanks for the youtube channel @cryptorobotfr : https://www.youtube.com/@cryptorobotfr
 
-Just modified few things from their project : https://github.com/CryptoRobotFr/live_tools
+Modified from their project : https://github.com/CryptoRobotFr/live_tools
 
 ## Bot de trading pour bybit
 utilise l'API ccxt
@@ -33,7 +33,7 @@ long_ma_window : Longueur de la moyenne mobile.
 Remerciement :
 Merci à la chaine youtube @cryptorobotfr : https://www.youtube.com/@cryptorobotfr
 
-Modifié quelques lignes depuis leurs projets : https://github.com/CryptoRobotFr/live_tools
+Modifié depuis leurs projets : https://github.com/CryptoRobotFr/live_tools
 
 
 
