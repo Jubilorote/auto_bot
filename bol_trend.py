@@ -32,12 +32,12 @@ type = ["long", "short"]
 bol_window = 100
 bol_std = 2.25
 min_bol_spread = 0
-long_ma_window = 500
+long_ma_window = 900
 
 def open_long(row):
     if (
-        (row['n1_close'] < row['n1_higher_band']) 
-        and  (row['close'] > row['higher_band']) 
+        (row['n1_close'] < row['n1_higher_band'])
+        and  (row['close'] > row['higher_band'])
         and  ((row['n1_higher_band'] - row['n1_lower_band']) / row['n1_lower_band'] > min_bol_spread)
         and (row['close'] > row['long_ma'])
     ):
@@ -53,10 +53,10 @@ def close_long(row):
 
 def open_short(row):
     if (
-        row['n1_close'] > row['n1_lower_band'] 
-        and (row['close'] < row['lower_band']) 
+        row['n1_close'] > row['n1_lower_band']
+        and (row['close'] < row['lower_band'])
         and ((row['n1_higher_band'] - row['n1_lower_band']) / row['n1_lower_band'] > min_bol_spread)
-        and (row['close'] < row['long_ma'])        
+        and (row['close'] < row['long_ma'])
     ):
         return True
     else:
@@ -128,7 +128,7 @@ else:
     print("No active position")
     if open_long(row) and "long" in type:
         long_market_price = float(df.iloc[-1]["close"])
-        long_quantity_in_usd = usd_balance * leverage *mult
+        long_quantity_in_usd = usd_balance * leverage * mult
         long_quantity = float(bybit.convert_amount_to_precision(pair, float(
             bybit.convert_amount_to_precision(pair, long_quantity_in_usd / long_market_price)
         )))
@@ -138,12 +138,12 @@ else:
         )
         if production:
             #bybit.place_market_order(pair, "buy", long_quantity, reduce=False)
-            trigger_price = (( percent_sl * long_market_price ) + ( long_market_price * mult))/mult
+            trigger_price = (( percent_sl * long_market_price ) + ( long_market_price * mult ))/mult
             bybit.place_market_stop_loss(pair, "buy", long_quantity, trigger_price, reduce=False) #!!!!!!!!!!!!!!!!!!!
 
     elif open_short(row) and "short" in type:
         short_market_price = float(df.iloc[-1]["close"])
-        short_quantity_in_usd = usd_balance * leverage *mult
+        short_quantity_in_usd = usd_balance * leverage * mult
         short_quantity = float(bybit.convert_amount_to_precision(pair, float(
             bybit.convert_amount_to_precision(pair, short_quantity_in_usd / short_market_price)
         )))
@@ -153,7 +153,7 @@ else:
         )
         if production:
             #bybit.place_market_order(pair, "sell", short_quantity, reduce=False)
-            trigger_price = (( short_market_price * mult)-( percent_sl * short_market_price ))/ mult
+            trigger_price = (( short_market_price * mult )-( percent_sl * short_market_price ))/ mult
             bybit.place_market_stop_loss(pair, "sell", short_quantity, trigger_price, reduce=False) #!!!!!!!!!!!!!!!!!
 
 now = datetime.now()
