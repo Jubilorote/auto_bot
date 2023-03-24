@@ -20,7 +20,7 @@ class PerpBybit():
             self._auth = True
             self._session = ccxt.bybit(bybit_auth_object)
         self.market = self._session.load_markets()
-    
+
     def authentication_required(fn):
         """Annotation for methods that require auth."""
         def wrapped(self, *args, **kwargs): #!!!!!!!!!
@@ -41,7 +41,7 @@ class PerpBybit():
         del result['timestamp']
         return result
 
-    
+
     def get_more_last_historical_async(self, symbol, timeframe, limit):
         max_threads = 4
         pool_size = round(limit/100)  # your "parallelness"
@@ -93,7 +93,7 @@ class PerpBybit():
             return truePositions
         except BaseException as err:
             raise TypeError("An error occured in get_open_position", err)
-    
+
     def convert_amount_to_precision(self, symbol, amount):
         return self._session.amount_to_precision(symbol, amount)
 
@@ -101,9 +101,9 @@ class PerpBybit():
     def place_market_order(self, symbol, side, amount, reduce=False):
         try:
             return self._session.create_order(
-                symbol, 
-                'market', 
-                side, 
+                symbol,
+                'market',
+                side,
                 self.convert_amount_to_precision(symbol, amount),
                 None,
                 params = {'reduce_only': reduce},
@@ -116,10 +116,10 @@ class PerpBybit():
 
         try:
             return self._session.create_order(
-                symbol, 
-                'market', 
-                side, 
-                self.convert_amount_to_precision(symbol, amount), 
+                symbol,
+                'market',
+                side,
+                self.convert_amount_to_precision(symbol, amount),
                 self.convert_price_to_precision(symbol, trigger_price),
                 params = {
                     'stop_loss': self.convert_price_to_precision(symbol, trigger_price),  # your stop price
