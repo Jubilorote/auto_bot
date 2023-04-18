@@ -1,4 +1,4 @@
-## Trading bot for Bybit 
+## Trading bot with Bybit 
 Bot take long and short with ccxt.bybit() API.
 Use bollinger and MA
 
