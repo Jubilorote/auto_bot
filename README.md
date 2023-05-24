@@ -16,7 +16,7 @@ My thanks :
 Modified from their project : https://github.com/CryptoRobotFr/live_tools
 
 ## Bot de trading pour bybit
-utilise l'API ccxt
+Prend des long ou des short en utilisant l'API ccxt de bybit.
 
 leverage : la quantity du wallet
 
